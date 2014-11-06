@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: ['bower_components/jquery/jquery.min.js',
                          'bower_components/bootstrap/dist/js/bootstrap.min.js', 
-                         'bower_components/bxslider/jquery.bxSlider.min.js', 
+                         'bower_components/bxslider-4/jquery.bxslider.min.js', 
                          'bower_components/html5shiv/dist/html5shiv.min.js', 
                          'bower_components/respond/dest/respond.min.js' 
                         ],
@@ -28,12 +28,10 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: [
                          'bower_components/bootstrap/dist/css/bootstrap.min.css', 
-                         'bower_components/bxslider/bx_styles/bx_styles.css', 
-                         'bower_components/bxslider/bx_styles/gray_*',
+                         'bower_components/bxslider-4/jquery.bxslider.css' 
                         ],
                         dest: 'dist/css/'
                     },
-                    //required file by bxslider
                     {
                         expand: true,
                         flatten: true,
@@ -42,6 +40,15 @@ module.exports = function(grunt) {
                         ],
                         dest: 'dist/fonts/'
                     },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: [
+                          'bower_components/bxslider-4/images/*'
+                        ],
+                        dest: 'dist/images/'
+                    },
+
 
                 ],
             },
