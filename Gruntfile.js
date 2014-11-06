@@ -28,7 +28,8 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: [
                          'bower_components/bootstrap/dist/css/bootstrap.min.css', 
-                         'bower_components/bxslider-4/jquery.bxslider.css' 
+                         'bower_components/bxslider-4/jquery.bxslider.css', 
+                         'bower_components/fontawesome/css/font-awesome.min.css', 
                         ],
                         dest: 'dist/css/'
                     },
@@ -37,6 +38,7 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: [
                           'bower_components/bootstrap/dist/fonts/*', 
+                          'bower_components/fontawesome/fonts/*', 
                         ],
                         dest: 'dist/fonts/'
                     },
@@ -49,7 +51,6 @@ module.exports = function(grunt) {
                         dest: 'dist/images/'
                     },
 
-
                 ],
             },
         },
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
         watch: {
           scripts: {
             files: ['src/**'],
-            tasks: ['copy', 'dom_munger:addLivereload'],
+            tasks: ['copy', 'replace:bxslidercss', 'dom_munger:addLivereload'],
             options: {
               spawn: false,
               debounceDelay: 250,
@@ -87,7 +88,20 @@ module.exports = function(grunt) {
               src: 'dist/index.html',
               dest: 'dist/index.html'
             },
+          },
+
+        /*** replace texts in files ***/
+        replace: {
+          bxslidercss: {
+            src: ['dist/css/jquery.bxslider.css'],             // source files array (supports minimatch)
+            dest: 'dist/css/jquery.bxslider.css',             // destination directory or file
+            replacements: [{
+              from: '(images',                   // string replacement
+              to: '(../images'
+            }]
           }
+        }
+
 
 
     });
@@ -95,6 +109,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-dom-munger');
+    grunt.loadNpmTasks('grunt-text-replace');
 
-    grunt.registerTask('default', ['copy', 'dom_munger:addLivereload', 'connect', 'watch']);
+    grunt.registerTask('default', ['copy', 'replace:bxslidercss', 'dom_munger:addLivereload', 'connect', 'watch']);
 };

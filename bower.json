@@ -15,8 +15,9 @@
   "dependencies": {
     "bootstrap": "~3.3.0",
     "jquery": "1.9.1",
-    "bxslider-4": "git@github.com:stevenwanderski/bxslider-4.git#~4.1.2",
     "html5shiv": "~3.7.2",
-    "respond": "~1.4.2"
+    "respond": "~1.4.2",
+    "bxslider-4": "git@github.com:stevenwanderski/bxslider-4.git#~4.1.2",
+    "fontawesome": "~4.2.0"
   }
 }
