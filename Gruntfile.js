@@ -59,8 +59,8 @@ module.exports = function(grunt) {
 
         watch: {
           scripts: {
-            files: ['src/**'],
-            tasks: ['copy', 'replace:bxslidercss', 'dom_munger:addLivereload'],
+            files: ['src/**', 'Gruntfile.js'],
+            tasks: ['copy', 'replace', 'dom_munger:addLivereload'],
             options: {
               spawn: false,
               debounceDelay: 250,
@@ -99,17 +99,34 @@ module.exports = function(grunt) {
               from: '(images',                   // string replacement
               to: '(../images'
             }]
+          },
+
+          bxsliderjs: {
+            src: ['dist/js/jquery.bxslider.min.js'],             // source files array (supports minimatch)
+            dest: 'dist/js/jquery.bxslider.min.js',             // destination directory or file
+            replacements: [{
+              from: 'margin:"0 auto 0px"',                   // string replacement
+              to: ''
+            }]
           }
-        }
 
+        },
 
+        /**** launch browser ****/
+        open: {
+            dev : {
+              path: 'http://localhost:9001/',
+              app: 'Firefox'
+            }
+        }        
 
     });
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-text-replace');
 
-    grunt.registerTask('default', ['copy', 'replace:bxslidercss', 'dom_munger:addLivereload', 'connect', 'watch']);
+    grunt.registerTask('default', ['copy', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
 };

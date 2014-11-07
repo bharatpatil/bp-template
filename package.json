@@ -1,5 +1,5 @@
 {
-  "name": "bp-template",
+  "name": "splash2",
   "version": "0.0.1",
   "description": "my sample bootstrap page dev skeleton",
   "main": "Gruntfile.js",
@@ -11,6 +11,7 @@
     "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-dom-munger": "^3.4.0",
+    "grunt-open": "^0.2.3",
     "grunt-text-replace": "^0.3.12"
   },
   "scripts": {
