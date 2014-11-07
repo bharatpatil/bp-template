@@ -1,0 +1,36 @@
+@media(max-width:767px) {
+
+	.text-center-xs {
+		text-align: center;
+	}
+
+	.center-block-xs {
+	  display: block;
+	  margin: 0 auto;
+	}	
+
+}
+
+@media(min-width:768px) {
+
+	.text-center-sm {
+		text-align: center;
+	}	
+	.center-block-sm {
+	  display: block;
+	  margin: 0 auto;
+	}
+}
+
+@media(min-width:992px) {
+
+	.left-block-md {
+	  display: block;
+	  margin:inherit;
+	}
+
+}
+
+@media(min-width:1200px) {
+}
+
