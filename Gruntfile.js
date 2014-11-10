@@ -130,6 +130,15 @@ module.exports = function(grunt) {
               "dist/css/bootstrap.min.css": "less/bootstrap.less"
             }
           },
+          production: {
+            options: {
+              paths: ["less"],
+              cleancss: true
+            },
+            files: {
+              "dist/css/bootstrap.min.css": "less/bootstrap.less"
+            }
+          },
         },                
 
     });
@@ -141,6 +150,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['copy', 'less', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
-    grunt.registerTask('build', ['copy', 'less', 'replace']);
+    grunt.registerTask('default', ['copy', 'less:development', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
+    grunt.registerTask('build', ['copy', 'less:production', 'replace']);
 };
