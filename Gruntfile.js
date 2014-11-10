@@ -1,6 +1,28 @@
 module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        banner: '/*!\n' +
+                ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+                ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+                ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
+                ' */\n',
+        // NOTE: This jqueryCheck/jqueryVersionCheck code is duplicated in customizer.js;
+        //       if making changes here, be sure to update the other copy too.
+        jqueryCheck: [
+          'if (typeof jQuery === \'undefined\') {',
+          '  throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\')',
+          '}\n'
+        ].join('\n'),
+        jqueryVersionCheck: [
+          '+function ($) {',
+          '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')',
+          '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {',
+          '    throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery version 1.9.1 or higher\')',
+          '  }',
+          '}(jQuery);\n\n'
+        ].join('\n'),
+
         copy: {
             main: {
                 nonull: true,
@@ -15,7 +37,7 @@ module.exports = function(grunt) {
                         expand: true,
                         flatten: true,
                         src: ['bower_components/jquery/jquery.min.js',
-                         'bower_components/bootstrap/dist/js/bootstrap.min.js', 
+                         // 'bower_components/bootstrap/dist/js/bootstrap.min.js', 
                          'bower_components/bxslider-4/jquery.bxslider.min.js', 
                          'bower_components/html5shiv/dist/html5shiv.min.js', 
                          'bower_components/respond/dest/respond.min.js' 
@@ -27,9 +49,9 @@ module.exports = function(grunt) {
                         expand: true,
                         flatten: true,
                         src: [
-                         'bower_components/bootstrap/dist/css/bootstrap.min.css', 
+                         // 'bower_components/bootstrap/dist/css/bootstrap.min.css', 
                          'bower_components/bxslider-4/jquery.bxslider.css', 
-                         'bower_components/fontawesome/css/font-awesome.min.css', 
+                         // 'bower_components/fontawesome/css/font-awesome.min.css', 
                         ],
                         dest: 'dist/css/'
                     },
@@ -127,7 +149,7 @@ module.exports = function(grunt) {
               paths: ["less"]
             },
             files: {
-              "dist/css/bootstrap.min.css": "less/bootstrap.less"
+              "dist/css/combined.min.css": "less/bootstrap.less"
             }
           },
           production: {
@@ -136,10 +158,46 @@ module.exports = function(grunt) {
               cleancss: true
             },
             files: {
-              "dist/css/bootstrap.min.css": "less/bootstrap.less"
+              "dist/css/combined.min.css": "less/bootstrap.less"
             }
           },
-        },                
+        },  
+
+        /**** concat js files of bootstrap ****/
+        concat: {
+          options: {
+            banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
+            stripBanners: false
+          },          
+          bootstrap: {
+            src: [
+              'bower_components/bootstrap/js/transition.js',
+              'bower_components/bootstrap/js/alert.js',
+              'bower_components/bootstrap/js/button.js',
+              'bower_components/bootstrap/js/carousel.js',
+              'bower_components/bootstrap/js/collapse.js',
+              'bower_components/bootstrap/js/dropdown.js',
+              'bower_components/bootstrap/js/modal.js',
+              'bower_components/bootstrap/js/tooltip.js',
+              'bower_components/bootstrap/js/popover.js',
+              'bower_components/bootstrap/js/scrollspy.js',
+              'bower_components/bootstrap/js/tab.js',
+              'bower_components/bootstrap/js/affix.js'
+            ],
+            dest: 'dist/js/bootstrap.js'
+          }
+        },
+
+        /**** uglify js files ****/
+        uglify: {
+          options: {
+            preserveComments: 'some'
+          },
+          core: {
+            src: 'dist/js/bootstrap.js',
+            dest: 'dist/js/bootstrap.min.js'
+          },
+        },                              
 
     });
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -149,7 +207,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['copy', 'less:development', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
-    grunt.registerTask('build', ['copy', 'less:production', 'replace']);
+    grunt.registerTask('default', ['copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
+    grunt.registerTask('build', ['copy', 'less:production', 'concat', 'uglify', 'replace']);
 };
