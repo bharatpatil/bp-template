@@ -118,7 +118,19 @@ module.exports = function(grunt) {
               path: 'http://localhost:9001/',
               app: 'Firefox'
             }
-        }        
+        },
+
+        /**** less for bootstra ****/
+        less: {
+          development: {
+            options: {
+              paths: ["less"]
+            },
+            files: {
+              "dist/css/bootstrap.min.css": "less/bootstrap.less"
+            }
+          },
+        },                
 
     });
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -127,6 +139,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['copy', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
+    grunt.registerTask('default', ['copy', 'less', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
+    grunt.registerTask('build', ['copy', 'less', 'replace']);
 };
