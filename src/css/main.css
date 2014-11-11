@@ -1,3 +1,42 @@
+/****** coupoun ***********/
+.atn-coupon {
+  min-width:280px;
+  max-width:300px;
+  padding-right: 20px;
+  /* border:1px solid red; */
+  background-image:url('http://lorempixel.com/300/400/food/1/');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+}
+.atn-coupon-top-text {
+  position:absolute;
+  top:10px;
+  width: 100%;  
+}
+.atn-coupon-top-text .atn-coupon-top-header {
+	font-family: 'Alex Brush', cursive;
+	font-size: 40px;
+	margin-bottom: -5px;
+}
+.atn-coupon-top-text .atn-coupon-top-description {	
+}
+.atn-coupon-bottom-text .atn-coupon-bottom-header {
+	font-weight: bolder;
+	font-style: italic;
+}
+.atn-coupon-bottom-text .atn-coupon-bottom-description {	
+	font-style: italic;
+}
+
+.atn-coupon-bottom-text {
+  position:absolute;
+  bottom:20px;
+  width: 100%;
+}
+/****************************/
 @media(max-width:767px) {
 
 	.text-center-xs {
@@ -8,7 +47,11 @@
 	  display: block;
 	  margin: 0 auto;
 	}	
-
+	.img-responsive-xs {
+		display: block;
+		height: auto;
+    	max-width: 100%;		
+	}
 }
 
 @media(min-width:768px) {
@@ -23,14 +66,27 @@
 }
 
 @media(min-width:992px) {
+	.text-left-md {
+		text-align: left;
+	}
 
+	.text-right-md {
+		text-align: right;
+	}
+	
 	.left-block-md {
 	  display: block;
 	  margin:inherit;
 	}
 
+	.container { 
+		width: 960px;
+	}
+
 }
 
 @media(min-width:1200px) {
+	.container { 
+		width: 960px;
+	}
 }
-
