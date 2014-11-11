@@ -81,8 +81,8 @@ module.exports = function(grunt) {
 
         watch: {
           scripts: {
-            files: ['src/**', 'Gruntfile.js'],
-            tasks: ['copy', 'replace', 'dom_munger:addLivereload'],
+            files: ['src/**', 'Gruntfile.js', 'less/**'],
+            tasks: ['copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload'],
             options: {
               spawn: false,
               debounceDelay: 250,
