@@ -36,6 +36,26 @@
   bottom:20px;
   width: 100%;
 }
+/******* common carousel settings ********/
+.bx-wrapper {
+	margin-bottom: 0px;
+}
+.bx-wrapper .bx-viewport {
+	left:0;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;  
+}
+
+/******* other utility classes*********/
+.img-responsive-xs {
+	display: inherit;
+	height: auto;
+	width: auto;
+}
+
 /****************************/
 @media(max-width:767px) {
 
