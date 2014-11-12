@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         watch: {
           scripts: {
             files: ['src/**', 'Gruntfile.js', 'less/**'],
-            tasks: ['copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload'],
+            tasks: ['clean:dist', 'copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload'],
             options: {
               spawn: false,
               debounceDelay: 250,
@@ -197,7 +197,26 @@ module.exports = function(grunt) {
             src: 'dist/js/bootstrap.js',
             dest: 'dist/js/bootstrap.min.js'
           },
-        },                              
+        },                          
+
+        /********** delete empty directories and files ************/    
+        cleanempty: {
+          options: {
+          },
+          dist: {
+            options: {
+              files: true
+            },
+            src: ['dist/**/*']
+          }
+        },        
+
+        /********** delete files and folders *************/
+        clean: {
+          dist: {
+            src: ["dist/**/*"]
+          }
+        },       
 
     });
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -209,7 +228,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-cleanempty');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('default', ['copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
-    grunt.registerTask('build', ['copy', 'less:production', 'concat', 'uglify', 'replace']);
+    grunt.registerTask('default', ['clean:dist', 'copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
+    grunt.registerTask('build', ['clean:dist', 'copy', 'less:production', 'concat', 'uglify', 'replace']);
 };
