@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         watch: {
           scripts: {
             files: ['src/**', 'Gruntfile.js', 'less/**'],
-            tasks: ['clean:dist', 'copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload'],
+            tasks: ['myWatch'],
             options: {
               spawn: false,
               debounceDelay: 250,
@@ -233,4 +233,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['clean:dist', 'copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload', 'connect', 'open', 'watch']);
     grunt.registerTask('build', ['clean:dist', 'copy', 'less:production', 'concat', 'uglify', 'replace']);
+    grunt.registerTask('myWatch', ['clean:dist', 'copy', 'less:development', 'concat', 'uglify', 'replace', 'dom_munger:addLivereload']);
+
 };
