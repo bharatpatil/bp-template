@@ -20,12 +20,15 @@
 	font-family: 'Alex Brush', cursive;
 	font-size: 40px;
 	margin-bottom: -5px;
+	word-wrap: break-word;
 }
 .atn-coupon-top-text .atn-coupon-top-description {	
+	word-wrap: break-word;
 }
 .atn-coupon-bottom-text .atn-coupon-bottom-header {
 	font-weight: bolder;
 	font-style: italic;
+	word-wrap: break-word;
 }
 .atn-coupon-bottom-text .atn-coupon-bottom-description {	
 	font-style: italic;
@@ -35,6 +38,7 @@
   position:absolute;
   bottom:20px;
   width: 100%;
+  word-wrap: break-word;
 }
 /******* common carousel settings ********/
 .bx-wrapper {
