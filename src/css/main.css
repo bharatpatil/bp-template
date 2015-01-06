@@ -1,15 +1,74 @@
+.atn-container {
+	border: 1px solid black;
+	display: block;
+	overflow: hidden;
+}
+/**** boostrap col-4 ****/
+.atn-container.atn-container1x1 {
+	width: 304px;
+	height: 190px;
+}
+.atn-container.atn-container1x2 {
+	width: 304px;
+	height: 396px;
+}
+.atn-container.atn-container1x3 {
+	width: 304px;
+	height: 602px;
+}
+/**** boostrap col-8 ****/
+/**** width: 624px; ****/
+/* we can not hardcode width for bigger containers as on small devices hardcoded width will remain as it is.
+and it will not behave in responsive way */
+.atn-container.atn-container2x1 {
+	height: 190px;
+}
+.atn-container.atn-container2x2 {
+	height: 396px;
+}
+.atn-container.atn-container2x3 {
+	height: 602px;
+}
+/**** boostrap col-12 ****/
+/**** width: 944px; ****/
+/* we can not hardcode width for bigger containers as on small devices hardcoded width will remain as it is.
+and it will not behave in responsive way */
+
+.atn-container.atn-container3x1 {
+	height: 190px;
+}
+.atn-container.atn-container3x2 {
+	height: 396px;
+}
+.atn-container.atn-container3x3 {
+	height: 602px;
+}
+
+
+.atn-login-box {		
+	padding: 30px 10px;	
+	width: 304px;
+	height: 396px;
+}
+.atn-social-box {
+	width: 70%;font-size:64px;margin:0 auto;
+}
+.atn-social-tip {
+	margin-top: 10px;
+	font-size: 12px;
+}
+
 /****** coupoun ***********/
 .atn-coupon {
-  min-width:280px;
-  max-width:300px;
   padding-right: 20px;
   /* border:1px solid red; */
-  background-image:url('http://lorempixel.com/300/400/food/1/');
+  background-image:url('http://placehold.it/304x396/');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
   position: relative;
+  height: 396px;
+  width: 304px;
 }
 .atn-coupon-top-text {
   position:absolute;
@@ -17,8 +76,6 @@
   width: 100%;  
 }
 .atn-coupon-top-text .atn-coupon-top-header {
-	font-family: 'Alex Brush', cursive;
-	font-size: 40px;
 	margin-bottom: -5px;
 	word-wrap: break-word;
 }
@@ -27,11 +84,9 @@
 }
 .atn-coupon-bottom-text .atn-coupon-bottom-header {
 	font-weight: bolder;
-	font-style: italic;
 	word-wrap: break-word;
 }
 .atn-coupon-bottom-text .atn-coupon-bottom-description {	
-	font-style: italic;
 }
 
 .atn-coupon-bottom-text {
@@ -52,6 +107,12 @@
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;  
 }
+.bx-wrapper .bx-controls-direction a {
+	z-index: 999;
+}
+.bx-wrapper ul {
+	padding-left: 0;
+}
 
 /******* other utility classes*********/
 .img-responsive-xs {
@@ -60,6 +121,152 @@
 	width: auto;
 }
 
+/**************Plugin*****************/
+.atn-plugin-sign-in-text
+{
+	position: absolute; top: 10px; padding: 0px; font-size: 24px; width: 304px; z-index: 100;
+}
+.atn-slide {
+	padding: 20px 30px 15px 30px;
+	width: 304px;
+	height: 396px;
+	border: 1px solid black;	
+}
+.atn-plugin-sub-heading
+{
+	font-size: 12px; position: absolute; width: 244px; top: 68px;
+}
+.atn-plugin-content
+{
+	height: 149px; position: absolute; width: 244px; top: 110px;
+	/*overflow: auto;*/
+}
+.atn-slide-polldaddy .atn-plugin-content {
+	overflow: auto;
+}
+.atn-plugin-terms-text
+{
+	font-size: 10px; color: #666; position: absolute; width: 304px; top: 270px;
+}
+.atn-plugin-terms-text a {
+	text-decoration: underline;
+	color: inherit !important;
+}
+.atn-plugin-button
+{
+	position: absolute; width: 244px; top: 295px;
+	cursor: pointer;
+}
+.atn-plugin-button-inner
+{
+	width:110px;height:30px;line-height:28px;border: 1px solid black; background-color: #ccc;
+}
+.atn-plugin-skip-social-media {
+	position: absolute; padding: 0px; width: 100%; max-width: 304px; bottom: 15px; font-size: 12px;
+}
+.atn-plugin-skip-social-media a { 
+	color: #eee;
+ }
+.atn-plugin-guestbook-username
+{
+	width: 100%; font-size: 14px; padding: 10px; line-height: 14px; margin-bottom: 15px;
+}
+.atn-plugin-guestbook-password
+{
+	width: 100%; font-size: 14px; padding: 10px; line-height: 14px;
+}
+.atn-plugin-container .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto
+{
+	bottom: auto !important;
+	top: 32px !important;
+}
+.atn-plugin-sms-table
+{
+	width: 100%;
+}
+.atn-plugin-sms-table td {
+	padding: 2px;
+}
+.atn-plugin-sms-country-code-td {
+	width: 25%;
+}
+.atn-plugin-sms-mobile-number-td {
+	width: 75%;
+}
+.atn-plugin-sms-textbox {
+	width: 100%; font-size: 14px; padding: 10px; line-height: 14px;display: inline-block;
+}
+.atn-plugin-sms-link {
+	font-size: 11px;
+	color: #666;
+}
+.pds-box {
+	display: block !important;
+	margin: 0 auto !important;
+}
+.atn-plugin-container .bx-wrapper .bx-controls-direction a
+{
+
+}
+.atn-plugin-container .bx-wrapper .bx-prev {
+	background: url("../images/left_arrow_24x24.png") no-repeat scroll left;
+	left: 5px;
+}
+.atn-plugin-container .bx-wrapper .bx-next {
+	background: url("../images/right_arrow_24x24.png") no-repeat scroll right;
+	right: 5px;
+}
+/********* social buttons ************/
+.atn-social-button, .atn-social-button-only {	
+	border: 1px solid black;	
+	color: #eee;
+	background-color: #333;	
+	cursor: pointer;
+}
+.atn-social-button {
+	display: block;	
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+.atn-social-button-only {
+	/*border-radius: 10px;	*/
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.atn-social-button {
+	width: 200px;
+	height: 48px;
+}
+.atn-social-button div, .atn-social-button-only div{
+	display: table-cell;	
+	vertical-align: middle;
+	text-align: center;
+	height: 100%;
+}
+
+.atn-social-button .atn-social-button-text {
+	border-left: 1px solid black;
+	padding: 0px 10px;
+}
+.atn-social-button .atn-social-button-icon {	
+	font-size: 18px;
+	padding: 10px;
+	width: 36px;	
+}
+
+.atn-social-button-only .atn-social-button-icon-only {	
+	font-size: 32px;
+	line-height: 60px;
+	width: 60px;
+}
+.atn-social-button.atn-social-button-circle, .atn-social-button-only.atn-social-button-circle {
+	border-radius: 999px;
+}
+/******* inline editor  **********/
+.atn-text p {
+	margin: 0 !important;
+}
 /****************************/
 @media(max-width:767px) {
 
@@ -102,6 +309,8 @@
 	  display: block;
 	  margin:inherit;
 	}
+
 }
 
 @media(min-width:1200px) {
+}
