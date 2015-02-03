@@ -1,3 +1,6 @@
+a {
+	color: inherit !important;
+}
 .atn-container {
 	border: 1px solid black;
 	display: block;
@@ -122,6 +125,11 @@ and it will not behave in responsive way */
 }
 
 /**************Plugin*****************/
+.atn-plugin-container {
+	width: 304px;
+	height: 396px;
+	margin: 0 auto;
+}
 .atn-plugin-sign-in-text
 {
 	position: absolute; top: 10px; padding: 0px; font-size: 24px; width: 304px; z-index: 100;
@@ -130,7 +138,7 @@ and it will not behave in responsive way */
 	padding: 20px 30px 15px 30px;
 	width: 304px;
 	height: 396px;
-	border: 1px solid black;	
+	border: none;	
 }
 .atn-plugin-sub-heading
 {
@@ -263,10 +271,43 @@ and it will not behave in responsive way */
 .atn-social-button.atn-social-button-circle, .atn-social-button-only.atn-social-button-circle {
 	border-radius: 999px;
 }
-/******* inline editor  **********/
+/********** inline editor ***********/
 .atn-text p {
 	margin: 0 !important;
 }
+
+.atn-1x1-coupon {
+    background: url("../images/coupon11.png") no-repeat scroll 0 0 rgba(58, 87, 138, 0.8);
+    color: #fff;
+    font-size: 12px;
+    height: 190px;
+    min-height: 190px;
+    min-width: 304px;
+    padding: 10px;
+    position: relative;
+    width: 304px;
+}
+
+
+.atn-1x1-coupon .atn-1x1-header {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.atn-1x1-coupon .atn-1x1-footer {
+    bottom: 30px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+
 /****************************/
 @media(max-width:767px) {
 

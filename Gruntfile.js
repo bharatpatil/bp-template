@@ -184,7 +184,7 @@ module.exports = function(grunt) {
               'bower_components/bootstrap/js/tab.js',
               'bower_components/bootstrap/js/affix.js'
             ],
-            dest: 'dist/js/bootstrap.js'
+            dest: 'dist/js/bootstrap.min.js'
           }
         },
 
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
             preserveComments: 'some'
           },
           core: {
-            src: 'dist/js/bootstrap.js',
+            src: 'dist/js/bootstrap.min.js',
             dest: 'dist/js/bootstrap.min.js'
           },
         },                          

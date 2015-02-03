@@ -1,0 +1,11 @@
+/** required by splash pages **/
+#mes {
+  width: 100%;
+  text-align: center;/*display: none;*/
+}
+#splash_msg {
+  display: none;
+}
+#cookie_msg {
+  font-size: 24px;
+}
