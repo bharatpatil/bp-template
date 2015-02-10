@@ -171,18 +171,18 @@ module.exports = function(grunt) {
           },          
           bootstrap: {
             src: [
-              'bower_components/bootstrap/js/transition.js',
-              'bower_components/bootstrap/js/alert.js',
+              // 'bower_components/bootstrap/js/transition.js',
+              // 'bower_components/bootstrap/js/alert.js',
               'bower_components/bootstrap/js/button.js',
-              'bower_components/bootstrap/js/carousel.js',
-              'bower_components/bootstrap/js/collapse.js',
-              'bower_components/bootstrap/js/dropdown.js',
+              // 'bower_components/bootstrap/js/carousel.js',
+              // 'bower_components/bootstrap/js/collapse.js',
+              // 'bower_components/bootstrap/js/dropdown.js',
               'bower_components/bootstrap/js/modal.js',
-              'bower_components/bootstrap/js/tooltip.js',
-              'bower_components/bootstrap/js/popover.js',
-              'bower_components/bootstrap/js/scrollspy.js',
-              'bower_components/bootstrap/js/tab.js',
-              'bower_components/bootstrap/js/affix.js'
+              // 'bower_components/bootstrap/js/tooltip.js',
+              // 'bower_components/bootstrap/js/popover.js',
+              // 'bower_components/bootstrap/js/scrollspy.js',
+              // 'bower_components/bootstrap/js/tab.js',
+              // 'bower_components/bootstrap/js/affix.js'
             ],
             dest: 'dist/js/bootstrap.min.js'
           }
@@ -197,6 +197,10 @@ module.exports = function(grunt) {
             src: 'dist/js/bootstrap.min.js',
             dest: 'dist/js/bootstrap.min.js'
           },
+          lazyload: {
+            src: 'dist/js/lazyYT.js',
+            dest: 'dist/js/lazyYT.js'
+          }
         },                          
 
         /********** delete empty directories and files ************/    
